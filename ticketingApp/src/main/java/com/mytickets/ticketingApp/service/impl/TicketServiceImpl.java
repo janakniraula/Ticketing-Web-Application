@@ -285,7 +285,7 @@ public class TicketServiceImpl implements TicketService {
             // Check if ticket exists and has valid status
             return (ticket.getStatus() == TicketStatus.PURCHASED ||
                     ticket.getStatus() == TicketStatus.RESOLD) &&
-                    !ticket.getIsUsed() &&
+                    !ticket.getUsed() &&
                     ticket.getEvent().getStatus() != EventStatus.CANCELLED;
         }
 
@@ -298,7 +298,7 @@ public class TicketServiceImpl implements TicketService {
         Ticket ticket = ticketRepository.findById(ticketId)
                 .orElseThrow(() -> new RuntimeException("Ticket not found with id: " + ticketId));
 
-        ticket.setIsUsed(true);
+        ticket.setUsed(true);
         ticketRepository.save(ticket);
     }
 }
