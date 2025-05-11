@@ -11,6 +11,7 @@
 	<groupId>com.mytickets</groupId>
 	<artifactId>ticketingApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>TicketingApp</name>
 	<description>A ticketing application for managing and reselling tickets for events.</description>
 	<url/>
@@ -34,6 +35,13 @@
 
 
 	<dependencies>
+		<!-- Add the tomcat dependency as provided -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
 		<!-- JWT -->
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
@@ -109,6 +117,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>ticketing-app</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
